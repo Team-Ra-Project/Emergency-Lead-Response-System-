@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emergency Lead Response System customer management page">
+  <title>Customer Management | ELRS</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/customer-management.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell" data-sidebar-state="expanded">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="sidebar__brand">
+        <a class="brand" href="./dashboard.html" aria-label="ELRS dashboard home">
+          <span class="brand__mark" aria-hidden="true">E</span>
+          <span class="brand__text">
+            <span class="brand__name">ELRS</span>
+            <span class="brand__subtitle">Emergency Response</span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Application modules">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link" href="./dashboard.html">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M4 13h7V4H4v9Zm0 7h7v-5H4v5Zm9 0h7v-9h-7v9Zm0-16v5h7V4h-7Z"/></svg>
+              </span>
+              <span class="nav-link__label">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="../leads/lead-management.html">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M13 3a8 8 0 1 0 4.9 14.3l2.4 2.4 1.4-1.4-2.4-2.4A8 8 0 0 0 13 3Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm-1 3v4l3 2 .9-1.5-2-1.2V8h-2Z"/></svg>
+              </span>
+              <span class="nav-link__label">Lead Management</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link nav-link--active" href="../customers/customer-management.html" aria-current="page">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.3 0-6 1.7-6 3.8V20h12v-2.2c0-2.1-2.7-3.8-6-3.8Z"/></svg>
+              </span>
+              <span class="nav-link__label">Customer Management</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="./appointment.html">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm13 8H4v10h16V10ZM6 12h4v4H6v-4Z"/></svg>
+              </span>
+              <span class="nav-link__label">Appointment</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm1 15h-2v-2h2v2Zm0-4h-2V7h2v6Z"/></svg>
+              </span>
+              <span class="nav-link__label">Services</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="m19.4 13.5.1-1.5-.1-1.5 2-1.5-2-3.5-2.4 1a8 8 0 0 0-2.6-1.5L14 2h-4l-.4 3a8 8 0 0 0-2.6 1.5l-2.4-1-2 3.5 2 1.5-.1 1.5.1 1.5-2 1.5 2 3.5 2.4-1a8 8 0 0 0 2.6 1.5l.4 3h4l.4-3a8 8 0 0 0 2.6-1.5l2.4 1 2-3.5-2-1.5ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/></svg>
+              </span>
+              <span class="nav-link__label">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm-8 9a8 8 0 0 1 16 0H4Z"/></svg>
+              </span>
+              <span class="nav-link__label">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#">
+              <span class="nav-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path d="M5 3h14v18H5V3Zm3 4v2h8V7H8Zm0 4v2h8v-2H8Zm0 4v2h5v-2H8Z"/></svg>
+              </span>
+              <span class="nav-link__label">Activity Logs</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__footer">
+        <a class="nav-link nav-link--logout" href="#">
+          <span class="nav-link__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M4 3h9v2H6v14h7v2H4V3Zm12.6 5.4L20.2 12l-3.6 3.6-1.4-1.4 1.2-1.2H10v-2h6.4l-1.2-1.2 1.4-1.4Z"/></svg>
+          </span>
+          <span class="nav-link__label">Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" data-sidebar-close aria-hidden="true"></div>
+
+    <div class="app-main">
+      <!-- Top Navbar -->
+      <header class="topbar">
+        <div class="topbar__inner">
+          <button class="icon-button topbar__menu" type="button" data-sidebar-toggle aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3V6Zm0 5h18v2H3v-2Zm0 5h18v2H3v-2Z"/></svg>
+          </button>
+
+          <form class="search" role="search" aria-label="Site search">
+            <label class="sr-only" for="global-search-input">Search</label>
+            <span class="search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M10.5 4a6.5 6.5 0 0 1 5.1 10.5l4 4-1.4 1.4-4-4A6.5 6.5 0 1 1 10.5 4Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></svg>
+            </span>
+            <input id="global-search-input" type="search" placeholder="Search" autocomplete="off">
+          </form>
+
+          <div class="topbar__actions">
+            <button class="icon-button notification-button" type="button" aria-label="View notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22a2.6 2.6 0 0 0 2.5-2h-5a2.6 2.6 0 0 0 2.5 2Zm7-6v2H5v-2l1.7-1.7V10a5.3 5.3 0 0 1 4.3-5.2V3h2v1.8A5.3 5.3 0 0 1 17.3 10v4.3L19 16Z"/></svg>
+              <span class="notification-button__dot" aria-hidden="true"></span>
+            </button>
+
+            <button class="profile-menu" type="button" aria-label="Open profile menu" aria-expanded="false">
+              <img class="profile-menu__avatar" src="../images/avatar.svg" alt="Kaustubh profile avatar">
+              <span class="profile-menu__name">Kaustubh</span>
+              <svg class="profile-menu__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 10 5 5 5-5H7Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Customer Management Content -->
+      <main class="content" id="main-content" tabindex="-1">
+        <div class="content__inner">
+          <div class="page-header customer-page-header">
+            <div>
+              <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                  <li><a href="../index.html">Dashboard</a></li>
+                  <li aria-current="page">Customer Management</li>
+                </ol>
+              </nav>
+              <h1>Customer Management</h1>
+              <p>Manage customer information, history and relationships.</p>
+            </div>
+          </div>
+
+          <section class="customer-management" aria-label="Customer management workspace">
+            <!-- Action Bar -->
+            <div class="customer-toolbar" aria-label="Customer table controls">
+              <div class="customer-search-field">
+                <label class="sr-only" for="customer-search">Search customers</label>
+                <span class="customer-search-field__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M10.5 4a6.5 6.5 0 0 1 5.1 10.5l4 4-1.4 1.4-4-4A6.5 6.5 0 1 1 10.5 4Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></svg>
+                </span>
+                <input id="customer-search" type="search" placeholder="Search customer by name, phone, email or customer ID..." autocomplete="off">
+              </div>
+
+              <div class="customer-filter-field">
+                <label class="sr-only" for="customer-filter">Filter customers</label>
+                <select id="customer-filter" aria-label="Filter customers by type or status">
+                  <option value="All Customers">All Customers</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="VIP">VIP</option>
+                  <option value="New">New</option>
+                  <option value="Existing">Existing</option>
+                </select>
+              </div>
+
+              <button class="button button--primary" type="button" data-open-modal>
+                <span aria-hidden="true">+</span>
+                Add Customer
+              </button>
+            </div>
+
+            <!-- Statistics Cards -->
+            <section class="customer-stats" aria-label="Customer statistics">
+              <article class="stat-card">
+                <span class="stat-card__icon stat-card__icon--info" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4ZM8 12a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm8 2c-3.1 0-6 1.6-6 3.7V20h12v-2.3c0-2.1-2.9-3.7-6-3.7ZM8 14c-2.7 0-5 1.3-5 3v3h5v-2.3a4 4 0 0 1 1.5-3A6.9 6.9 0 0 0 8 14Z"/></svg>
+                </span>
+                <div>
+                  <p>Total Customers</p>
+                  <strong>1,284</strong>
+                  <span>+9% this month</span>
+                </div>
+              </article>
+              <article class="stat-card">
+                <span class="stat-card__icon stat-card__icon--new" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M11 3h2v8h8v2h-8v8h-2v-8H3v-2h8V3Z"/></svg>
+                </span>
+                <div>
+                  <p>New Customers</p>
+                  <strong>48</strong>
+                  <span>12 added today</span>
+                </div>
+              </article>
+              <article class="stat-card">
+                <span class="stat-card__icon stat-card__icon--vip" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 9.2 8.4 2 9.1l5.4 4.7L5.8 21 12 17.2 18.2 21l-1.6-7.2L22 9.1l-7.2-.7L12 2Z"/></svg>
+                </span>
+                <div>
+                  <p>VIP Customers</p>
+                  <strong>156</strong>
+                  <span>+6 upgraded this week</span>
+                </div>
+              </article>
+              <article class="stat-card">
+                <span class="stat-card__icon stat-card__icon--inactive" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5 11H7v-2h10v2Z"/></svg>
+                </span>
+                <div>
+                  <p>Inactive Customers</p>
+                  <strong>72</strong>
+                  <span>-4% from last month</span>
+                </div>
+              </article>
+            </section>
+
+            <!-- Customer Table -->
+            <section class="customer-table-card" aria-labelledby="customer-table-title">
+              <div class="customer-table-card__header">
+                <div>
+                  <h2 id="customer-table-title">All Customers</h2>
+                  <p><span data-result-count>0</span> records found</p>
+                </div>
+              </div>
+
+              <div class="customer-table-scroll">
+                <table class="customer-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Customer ID</th>
+                      <th scope="col">Customer Name</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Email Address</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Linked Leads</th>
+                      <th scope="col">Appointments</th>
+                      <th scope="col">Customer Type</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Created Date</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody data-customer-table-body></tbody>
+                </table>
+              </div>
+
+              <!-- Empty State -->
+              <div class="customer-empty-state" data-empty-state hidden>
+                <div class="customer-empty-state__illustration" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" focusable="false">
+                    <path d="M40 8a24 24 0 1 0 0 48 24 24 0 0 0 0-48Zm0 12a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 30a18 18 0 0 1-13-5.6C29 39.8 34 37 40 37s11 2.8 13 7.4A18 18 0 0 1 40 50Z"/>
+                    <path d="M18 66h44v6H18z"/>
+                  </svg>
+                </div>
+                <p>No customers found.</p>
+                <button class="button button--primary" type="button" data-open-modal>
+                  <span aria-hidden="true">+</span>
+                  Add Customer
+                </button>
+              </div>
+
+              <!-- Pagination -->
+              <nav class="pagination" aria-label="Customer table pagination">
+                <button type="button">Previous</button>
+                <button class="pagination__page pagination__page--active" type="button" aria-current="page">1</button>
+                <button class="pagination__page" type="button">2</button>
+                <button class="pagination__page" type="button">3</button>
+                <button type="button">Next</button>
+              </nav>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Customer Profile Drawer -->
+  <div class="drawer-backdrop" data-drawer-backdrop hidden>
+    <aside class="customer-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-describedby="drawer-description">
+      <div class="customer-drawer__header">
+        <div>
+          <h2 id="drawer-title">Customer Profile</h2>
+          <p id="drawer-description">Customer information and activity history.</p>
+        </div>
+        <button class="drawer-close" type="button" data-close-drawer aria-label="Close customer profile drawer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5Z"/></svg>
+        </button>
+      </div>
+
+      <div class="customer-drawer__body">
+        <section class="profile-summary" aria-label="Customer summary">
+          <div class="profile-summary__photo" data-drawer-initials aria-hidden="true">--</div>
+          <div>
+            <h3 data-drawer-name>Customer Name</h3>
+            <p data-drawer-email>email@example.com</p>
+            <span class="status-badge status-badge--active" data-drawer-status>Active</span>
+          </div>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="basic-info-title">
+          <h3 id="basic-info-title">Basic Information</h3>
+          <dl>
+            <div>
+              <dt>Customer ID</dt>
+              <dd data-drawer-id>--</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd data-drawer-phone>--</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd data-drawer-type>--</dd>
+            </div>
+            <div>
+              <dt>Created</dt>
+              <dd data-drawer-created>--</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="address-title">
+          <h3 id="address-title">Address</h3>
+          <p data-drawer-address>--</p>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="linked-leads-title">
+          <h3 id="linked-leads-title">Linked Leads</h3>
+          <p data-drawer-leads>--</p>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="appointment-history-title">
+          <h3 id="appointment-history-title">Appointment History</h3>
+          <p data-drawer-appointments>--</p>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="recent-services-title">
+          <h3 id="recent-services-title">Recent Services</h3>
+          <p data-drawer-services>--</p>
+        </section>
+
+        <section class="drawer-section" aria-labelledby="notes-title">
+          <h3 id="notes-title">Notes</h3>
+          <p data-drawer-notes>--</p>
+        </section>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Add Customer Modal -->
+  <div class="modal-backdrop" data-modal-backdrop hidden>
+    <section class="customer-modal" role="dialog" aria-modal="true" aria-labelledby="customer-modal-title" aria-describedby="customer-modal-description">
+      <div class="customer-modal__header">
+        <div>
+          <h2 id="customer-modal-title">Add Customer</h2>
+          <p id="customer-modal-description">Create a new customer profile.</p>
+        </div>
+        <button class="modal-close" type="button" data-close-modal aria-label="Close add customer modal">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5Z"/></svg>
+        </button>
+      </div>
+
+      <form class="customer-form" novalidate data-customer-form>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="customer-name">Customer Name <span aria-hidden="true">*</span></label>
+            <input id="customer-name" name="customerName" type="text" autocomplete="name" required>
+            <p class="form-error" data-error-for="customerName"></p>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            <p class="form-error" data-error-for="phone"></p>
+          </div>
+          <div class="form-field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <p class="form-error" data-error-for="email"></p>
+          </div>
+          <div class="form-field">
+            <label for="city">City <span aria-hidden="true">*</span></label>
+            <input id="city" name="city" type="text" autocomplete="address-level2" required>
+            <p class="form-error" data-error-for="city"></p>
+          </div>
+          <div class="form-field form-field--wide">
+            <label for="address">Address <span aria-hidden="true">*</span></label>
+            <input id="address" name="address" type="text" autocomplete="street-address" required>
+            <p class="form-error" data-error-for="address"></p>
+          </div>
+          <div class="form-field">
+            <label for="state">State <span aria-hidden="true">*</span></label>
+            <input id="state" name="state" type="text" autocomplete="address-level1" required>
+            <p class="form-error" data-error-for="state"></p>
+          </div>
+          <div class="form-field">
+            <label for="pincode">Pincode <span aria-hidden="true">*</span></label>
+            <input id="pincode" name="pincode" type="text" inputmode="numeric" autocomplete="postal-code" required>
+            <p class="form-error" data-error-for="pincode"></p>
+          </div>
+          <div class="form-field">
+            <label for="customer-type">Customer Type <span aria-hidden="true">*</span></label>
+            <select id="customer-type" name="customerType" required>
+              <option value="">Select customer type</option>
+              <option>VIP</option>
+              <option>New</option>
+              <option>Existing</option>
+            </select>
+            <p class="form-error" data-error-for="customerType"></p>
+          </div>
+          <div class="form-field form-field--wide">
+            <label for="notes">Notes <span aria-hidden="true">*</span></label>
+            <textarea id="notes" name="notes" rows="4" required></textarea>
+            <p class="form-error" data-error-for="notes"></p>
+          </div>
+        </div>
+
+        <div class="customer-modal__footer">
+          <button class="button button--secondary" type="button" data-close-modal>Cancel</button>
+          <button class="button button--primary" type="submit">Save Customer</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script src="../../js/app.js"></script>
+  <script src="../../js/customer-management.js"></script>
+</body>
+</html>
