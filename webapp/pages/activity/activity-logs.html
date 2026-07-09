@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Emergency Lead Response System activity logs page"
+    />
+    <title>Activity Logs | ELRS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/responsive.css" />
+    <style>
+      .logs-page-header p {
+        margin: 8px 0 0;
+        color: var(--color-text-muted);
+      }
+      .logs-card {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+      .logs-toolbar {
+        display: grid;
+        grid-template-columns: minmax(260px, 1fr) minmax(180px, 220px) auto auto;
+        gap: 12px;
+        padding: 20px;
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-card);
+      }
+      .search-control {
+        position: relative;
+      }
+      .search-control i {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        color: var(--color-text-muted);
+        transform: translateY(-50%);
+      }
+      .search-control .form-control {
+        padding-left: 40px;
+      }
+      .form-control,
+      .form-select {
+        min-height: 42px;
+        border-color: var(--color-border);
+        border-radius: var(--radius-control);
+      }
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.14);
+      }
+      .btn-elrs {
+        border: 0;
+        border-radius: var(--radius-control);
+        background: var(--color-primary);
+        color: #fff;
+        font-weight: 600;
+        transition:
+          transform var(--transition-base),
+          background var(--transition-base),
+          box-shadow var(--transition-base);
+      }
+      .btn-elrs:hover {
+        background: var(--color-primary-hover);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-soft);
+      }
+      .btn-elrs-outline {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-control);
+        background: #fff;
+        color: var(--color-text);
+        font-weight: 600;
+        transition:
+          transform var(--transition-base),
+          border-color var(--transition-base),
+          color var(--transition-base),
+          box-shadow var(--transition-base);
+      }
+      .btn-elrs-outline:hover {
+        border-color: rgba(108, 92, 231, 0.34);
+        color: var(--color-primary);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-soft);
+      }
+      .logs-table {
+        min-width: 980px;
+        margin: 0;
+      }
+      .logs-table thead th {
+        background: #fafafc;
+        color: var(--color-text-muted);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .logs-table th,
+      .logs-table td {
+        padding: 16px;
+        border-color: var(--color-border);
+        vertical-align: middle;
+      }
+      .logs-table tbody tr {
+        transition:
+          background var(--transition-base),
+          transform var(--transition-base);
+      }
+      .logs-table tbody tr:hover {
+        background: #fafafc;
+      }
+      .sort-icon {
+        margin-left: 6px;
+        color: #9ca3af;
+        font-size: 11px;
+      }
+      .log-id {
+        color: var(--color-primary);
+        font-weight: 700;
+      }
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 999px;
+        padding: 5px 11px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .status-success {
+        background: rgba(34, 197, 94, 0.12);
+        color: var(--color-success);
+      }
+      .status-warning {
+        background: rgba(245, 158, 11, 0.14);
+        color: var(--color-warning);
+      }
+      .status-danger {
+        background: rgba(239, 68, 68, 0.12);
+        color: var(--color-danger);
+      }
+      .status-info {
+        background: rgba(59, 130, 246, 0.12);
+        color: var(--color-info);
+      }
+      .pagination .page-link {
+        border-color: var(--color-border);
+        color: var(--color-text);
+      }
+      .pagination .active .page-link,
+      .pagination .page-link:hover {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        color: #fff;
+      }
+      @media (max-width: 960px) {
+        .logs-toolbar {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 576px) {
+        .logs-toolbar {
+          grid-template-columns: 1fr;
+          padding: 16px;
+        }
+        .logs-toolbar .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="app-shell" data-sidebar-state="expanded">
+      <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+        <div class="sidebar__brand">
+          <a class="brand" href="../index.html" aria-label="ELRS dashboard home"
+            ><span class="brand__mark">E</span
+            ><span class="brand__text"
+              ><span class="brand__name">ELRS</span
+              ><span class="brand__subtitle">Emergency Response</span></span
+            ></a
+          >
+        </div>
+        <nav class="sidebar__nav" aria-label="Application modules">
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="../dashboard/index.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-table-columns"></i></span
+                ><span class="nav-link__label">Dashboard</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../leads/lead-management.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-magnifying-glass-chart"></i></span
+                ><span class="nav-link__label">Lead Management</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../customers/customer-management.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-users"></i></span
+                ><span class="nav-link__label">Customer Management</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../appointments/appointment.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-calendar-check"></i></span
+                ><span class="nav-link__label">Appointment</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../services/services.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-shield-halved"></i></span
+                ><span class="nav-link__label">Services</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../settings/settings.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-gear"></i></span
+                ><span class="nav-link__label">Settings</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="../profile/profile.html"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-user"></i></span
+                ><span class="nav-link__label">Profile</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link nav-link--active"
+                href="../activity/activity-logs.html"
+                aria-current="page"
+                ><span class="nav-link__icon"
+                  ><i class="fa-solid fa-clipboard-list"></i></span
+                ><span class="nav-link__label">Activity Logs</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar__footer">
+          <a class="nav-link nav-link--logout" href="#"
+            ><span class="nav-link__icon"
+              ><i class="fa-solid fa-right-from-bracket"></i></span
+            ><span class="nav-link__label">Logout</span></a
+          >
+        </div>
+      </aside>
+      <div class="sidebar-overlay" data-sidebar-close aria-hidden="true"></div>
+      <div class="app-main">
+        <header class="topbar">
+          <div class="topbar__inner">
+            <button
+              class="icon-button topbar__menu"
+              type="button"
+              data-sidebar-toggle
+              aria-label="Open navigation"
+              aria-controls="sidebar"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <form class="search" role="search" aria-label="Site search">
+              <label class="sr-only" for="global-search-input">Search</label
+              ><span class="search__icon"
+                ><i class="fa-solid fa-magnifying-glass"></i></span
+              ><input
+                id="global-search-input"
+                type="search"
+                placeholder="Search"
+                autocomplete="off"
+              />
+            </form>
+            <div class="topbar__actions">
+              <button
+                class="icon-button notification-button"
+                type="button"
+                aria-label="View notifications"
+              >
+                <i class="fa-solid fa-bell"></i
+                ><span class="notification-button__dot"></span></button
+              ><button
+                class="profile-menu"
+                type="button"
+                aria-label="Open profile menu"
+              >
+                <span
+                  class="profile-menu__avatar d-inline-flex align-items-center justify-content-center"
+                  ><i class="fa-solid fa-user"></i></span
+                ><span class="profile-menu__name">Kaustubh</span
+                ><i class="fa-solid fa-chevron-down profile-menu__arrow"></i>
+              </button>
+            </div>
+          </div>
+        </header>
+        <main class="content" id="main-content" tabindex="-1">
+          <div class="content__inner">
+            <div class="page-header logs-page-header">
+              <div>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <ol>
+                    <li><a href="../index.html">Dashboard</a></li>
+                    <li aria-current="page">Activity Logs</li>
+                  </ol>
+                </nav>
+                <h1>Activity Logs</h1>
+                <p>Track recent user activity across ELRS modules.</p>
+              </div>
+            </div>
+            <section class="card logs-card">
+              <div class="logs-toolbar" aria-label="Activity log controls">
+                <div class="search-control">
+                  <label class="sr-only" for="log-search">Search logs</label
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                  ><input
+                    class="form-control"
+                    id="log-search"
+                    type="search"
+                    placeholder="Search by user, action or module"
+                  />
+                </div>
+                <select class="form-select" aria-label="Filter logs">
+                  <option selected>All Activity</option>
+                  <option>Successful</option>
+                  <option>Pending</option>
+                  <option>Failed</option>
+                  <option>System</option>
+                </select>
+                <button class="btn btn-elrs-outline" type="button">
+                  <i class="fa-solid fa-file-export me-2"></i>Export
+                </button>
+                <button class="btn btn-elrs" type="button" data-print-logs>
+                  <i class="fa-solid fa-print me-2"></i>Print
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table logs-table align-middle">
+                  <thead>
+                    <tr>
+                      <th>Log ID <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>User <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>Action <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>Module <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>Date <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>Time <i class="fa-solid fa-sort sort-icon"></i></th>
+                      <th>Status <i class="fa-solid fa-sort sort-icon"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="log-id">LOG-1001</td>
+                      <td>Kaustubh Sharma</td>
+                      <td>Updated lead priority</td>
+                      <td>Lead Management</td>
+                      <td>09 Jul 2026</td>
+                      <td>09:42 AM</td>
+                      <td>
+                        <span class="status-badge status-success"
+                          ><i class="fa-solid fa-circle-check"></i>Success</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1002</td>
+                      <td>Nisha Rao</td>
+                      <td>Created new customer</td>
+                      <td>Customer Management</td>
+                      <td>09 Jul 2026</td>
+                      <td>09:18 AM</td>
+                      <td>
+                        <span class="status-badge status-success"
+                          ><i class="fa-solid fa-circle-check"></i>Success</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1003</td>
+                      <td>Aarav Mehta</td>
+                      <td>Changed appointment time</td>
+                      <td>Appointment</td>
+                      <td>09 Jul 2026</td>
+                      <td>08:57 AM</td>
+                      <td>
+                        <span class="status-badge status-info"
+                          ><i class="fa-solid fa-circle-info"></i>System</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1004</td>
+                      <td>Priya Nair</td>
+                      <td>Exported daily report</td>
+                      <td>Reports</td>
+                      <td>08 Jul 2026</td>
+                      <td>06:35 PM</td>
+                      <td>
+                        <span class="status-badge status-success"
+                          ><i class="fa-solid fa-circle-check"></i>Success</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1005</td>
+                      <td>Rohan Shah</td>
+                      <td>Attempted password change</td>
+                      <td>Security</td>
+                      <td>08 Jul 2026</td>
+                      <td>05:12 PM</td>
+                      <td>
+                        <span class="status-badge status-warning"
+                          ><i class="fa-solid fa-clock"></i>Pending</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1006</td>
+                      <td>Meera Iyer</td>
+                      <td>Failed login attempt</td>
+                      <td>Authentication</td>
+                      <td>08 Jul 2026</td>
+                      <td>04:46 PM</td>
+                      <td>
+                        <span class="status-badge status-danger"
+                          ><i class="fa-solid fa-triangle-exclamation"></i
+                          >Failed</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1007</td>
+                      <td>Admin</td>
+                      <td>Updated notification settings</td>
+                      <td>Settings</td>
+                      <td>08 Jul 2026</td>
+                      <td>03:28 PM</td>
+                      <td>
+                        <span class="status-badge status-success"
+                          ><i class="fa-solid fa-circle-check"></i>Success</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="log-id">LOG-1008</td>
+                      <td>Vikram Sethi</td>
+                      <td>Closed emergency lead</td>
+                      <td>Lead Management</td>
+                      <td>08 Jul 2026</td>
+                      <td>02:03 PM</td>
+                      <td>
+                        <span class="status-badge status-success"
+                          ><i class="fa-solid fa-circle-check"></i>Success</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 p-3 border-top"
+              >
+                <span class="text-muted small">Showing 1 to 8 of 42 logs</span>
+                <nav aria-label="Activity logs pagination">
+                  <ul class="pagination mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/app.js"></script>
+    <script>
+      document
+        .querySelector("[data-print-logs]")
+        ?.addEventListener("click", function () {
+          window.print();
+        });
+    </script>
+  </body>
+</html>
