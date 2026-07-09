@@ -1,410 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Emergency Lead Response System service management page"
-    />
-    <title>Service Management | ELRS</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="../../css/layout.css" />
-    <link rel="stylesheet" href="../../css/responsive.css" />
-    <link rel="stylesheet" href="../../css/services.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <div class="app-shell" data-sidebar-state="expanded">
-      <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
-        <div class="sidebar__brand">
-          <a class="brand" href="../index.html" aria-label="ELRS dashboard home"
-            ><span class="brand__mark">E</span
-            ><span class="brand__text"
-              ><span class="brand__name">ELRS</span
-              ><span class="brand__subtitle">Emergency Response</span></span
-            ></a
-          >
-        </div>
-        <nav class="sidebar__nav" aria-label="Application modules">
-          <ul class="nav-list">
-            <li>
-              <a class="nav-link" href="../index.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-table-columns"></i></span
-                ><span class="nav-link__label">Dashboard</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../leads/lead-management.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-magnifying-glass-chart"></i></span
-                ><span class="nav-link__label">Lead Management</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../customers/customer-management.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-users"></i></span
-                ><span class="nav-link__label">Customer Management</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../appointments/appointment.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-calendar-check"></i></span
-                ><span class="nav-link__label">Appointment</span></a
-              >
-            </li>
-            <li>
-              <a
-                class="nav-link nav-link--active"
-                href="../services/services.html"
-                aria-current="page"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-shield-halved"></i></span
-                ><span class="nav-link__label">Services</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../settings/settings.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-gear"></i></span
-                ><span class="nav-link__label">Settings</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../profile/profile.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-user"></i></span
-                ><span class="nav-link__label">Profile</span></a
-              >
-            </li>
-            <li>
-              <a class="nav-link" href="../activity/activity-logs.html"
-                ><span class="nav-link__icon"
-                  ><i class="fa-solid fa-clipboard-list"></i></span
-                ><span class="nav-link__label">Activity Logs</span></a
-              >
-            </li>
-          </ul>
-        </nav>
-        <div class="sidebar__footer">
-          <a class="nav-link nav-link--logout" href="#"
-            ><span class="nav-link__icon"
-              ><i class="fa-solid fa-right-from-bracket"></i></span
-            ><span class="nav-link__label">Logout</span></a
-          >
-        </div>
-      </aside>
-      <div class="sidebar-overlay" data-sidebar-close aria-hidden="true"></div>
-      <div class="app-main">
-        <header class="topbar">
-          <div class="topbar__inner">
-            <button
-              class="icon-button topbar__menu"
-              type="button"
-              data-sidebar-toggle
-              aria-label="Open navigation"
-              aria-controls="sidebar"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <form class="search" role="search" aria-label="Site search">
-              <label class="sr-only" for="global-search-input">Search</label
-              ><span class="search__icon"
-                ><i class="fa-solid fa-magnifying-glass"></i></span
-              ><input
-                id="global-search-input"
-                type="search"
-                placeholder="Search"
-                autocomplete="off"
-              />
-            </form>
-            <div class="topbar__actions">
-              <button
-                class="icon-button notification-button"
-                type="button"
-                aria-label="View notifications"
-              >
-                <i class="fa-solid fa-bell"></i
-                ><span class="notification-button__dot"></span></button
-              ><button
-                class="profile-menu"
-                type="button"
-                aria-label="Open profile menu"
-              >
-                <span
-                  class="profile-menu__avatar d-inline-flex align-items-center justify-content-center"
-                  ><i class="fa-solid fa-user"></i></span
-                ><span class="profile-menu__name">Kaustubh</span
-                ><i class="fa-solid fa-chevron-down profile-menu__arrow"></i>
-              </button>
-            </div>
-          </div>
-        </header>
-        <main class="content" id="main-content" tabindex="-1">
-          <div class="content__inner">
-            <div class="page-header service-page-header">
-              <div>
-                <nav class="breadcrumb" aria-label="Breadcrumb">
-                  <ol>
-                    <li><a href="../index.html">Dashboard</a></li>
-                    <li aria-current="page">Services</li>
-                  </ol>
-                </nav>
-                <h1>Service Management</h1>
-                <p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services — ELRS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../../images/logo.png" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/tables.css" />
+  <link rel="stylesheet" href="../../css/forms.css" />
+  <link rel="stylesheet" href="../../css/services.css" />
+  <link rel="stylesheet" href="../../css/responsive.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="shell"></div>
+  <template id="page-content">
+<div class="content__inner">
+<div class="page-header service-page-header">
+<div>
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<ol>
+<li><a href="../index.html">Dashboard</a></li>
+<li aria-current="page">Services</li>
+</ol>
+</nav>
+<h1>Service Management</h1>
+<p>
                   Manage emergency service catalog, pricing and availability.
                 </p>
-              </div>
-            </div>
-            <section class="service-workspace">
-              <section class="service-stats" aria-label="Service summary">
-                <article class="service-stat-card">
-                  <span class="stat-icon stat-icon--primary"
-                    ><i class="fa-solid fa-screwdriver-wrench"></i
-                  ></span>
-                  <div>
-                    <p>Total Services</p>
-                    <strong>28</strong><span>Across all categories</span>
-                  </div>
-                </article>
-                <article class="service-stat-card">
-                  <span class="stat-icon stat-icon--success"
-                    ><i class="fa-solid fa-toggle-on"></i
-                  ></span>
-                  <div>
-                    <p>Active Services</p>
-                    <strong>22</strong><span>Available for booking</span>
-                  </div>
-                </article>
-                <article class="service-stat-card">
-                  <span class="stat-icon stat-icon--danger"
-                    ><i class="fa-solid fa-toggle-off"></i
-                  ></span>
-                  <div>
-                    <p>Inactive Services</p>
-                    <strong>6</strong><span>Temporarily hidden</span>
-                  </div>
-                </article>
-                <article class="service-stat-card">
-                  <span class="stat-icon stat-icon--info"
-                    ><i class="fa-solid fa-layer-group"></i
-                  ></span>
-                  <div>
-                    <p>Categories</p>
-                    <strong>7</strong><span>Operational groups</span>
-                  </div>
-                </article>
-              </section>
-              <div class="service-toolbar">
-                <div class="toolbar-search">
-                  <i class="fa-solid fa-magnifying-glass"></i
-                  ><label class="sr-only" for="serviceSearch"
-                    >Search Service</label
-                  ><input
-                    id="serviceSearch"
-                    type="search"
-                    placeholder="Search service name or category"
-                  />
-                </div>
-                <select id="categoryFilter" aria-label="Category Filter">
-                  <option value="All">All Categories</option>
-                  <option>Plumbing</option>
-                  <option>Electrical</option>
-                  <option>HVAC</option>
-                  <option>Restoration</option>
-                  <option>Inspection</option>
-                </select>
-                <select id="serviceStatusFilter" aria-label="Status Filter">
-                  <option value="All">All Status</option>
-                  <option>Active</option>
-                  <option>Inactive</option>
-                </select>
-                <button
-                  class="button button--primary"
-                  type="button"
-                  data-open-add-service
-                >
-                  <i class="fa-solid fa-plus"></i>Add Service
+</div>
+</div>
+<section class="service-workspace">
+<section aria-label="Service summary" class="service-stats">
+<article class="service-stat-card">
+<span class="stat-icon stat-icon--primary"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+<div>
+<p>Total Services</p>
+<strong>28</strong><span>Across all categories</span>
+</div>
+</article>
+<article class="service-stat-card">
+<span class="stat-icon stat-icon--success"><i class="fa-solid fa-toggle-on"></i></span>
+<div>
+<p>Active Services</p>
+<strong>22</strong><span>Available for booking</span>
+</div>
+</article>
+<article class="service-stat-card">
+<span class="stat-icon stat-icon--danger"><i class="fa-solid fa-toggle-off"></i></span>
+<div>
+<p>Inactive Services</p>
+<strong>6</strong><span>Temporarily hidden</span>
+</div>
+</article>
+<article class="service-stat-card">
+<span class="stat-icon stat-icon--info"><i class="fa-solid fa-layer-group"></i></span>
+<div>
+<p>Categories</p>
+<strong>7</strong><span>Operational groups</span>
+</div>
+</article>
+</section>
+<div class="service-toolbar">
+<div class="toolbar-search">
+<i class="fa-solid fa-magnifying-glass"></i><label class="sr-only" for="serviceSearch">Search Service</label><input id="serviceSearch" placeholder="Search service name or category" type="search"/>
+</div>
+<select aria-label="Category Filter" id="categoryFilter">
+<option value="All">All Categories</option>
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>HVAC</option>
+<option>Restoration</option>
+<option>Inspection</option>
+</select>
+<select aria-label="Status Filter" id="serviceStatusFilter">
+<option value="All">All Status</option>
+<option>Active</option>
+<option>Inactive</option>
+</select>
+<button class="button button--primary" data-open-add-service="" type="button">
+<i class="fa-solid fa-plus"></i>Add Service
                 </button>
-              </div>
-              <div class="service-layout">
-                <section
-                  class="service-table-card"
-                  aria-labelledby="servicesTableTitle"
-                >
-                  <div class="table-card-header">
-                    <div>
-                      <h2 id="servicesTableTitle">Services</h2>
-                      <p><span data-service-count>0</span> records found</p>
-                    </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="service-table">
-                      <thead>
-                        <tr>
-                          <th>Service ID</th>
-                          <th>Service Name</th>
-                          <th>Category</th>
-                          <th>Price</th>
-                          <th>Duration</th>
-                          <th>Status</th>
-                          <th>Last Updated</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody data-service-table></tbody>
-                    </table>
-                  </div>
-                  <nav class="pagination" aria-label="Services pagination">
-                    <button type="button">Previous</button
-                    ><button
-                      class="pagination__page pagination__page--active"
-                      type="button"
-                    >
-                      1</button
-                    ><button class="pagination__page" type="button">2</button
-                    ><button class="pagination__page" type="button">3</button
-                    ><button type="button">Next</button>
-                  </nav>
-                </section>
-                <aside class="service-details-card" aria-live="polite">
-                  <div class="service-image" data-detail-image>
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                  </div>
-                  <div class="service-details-body" data-service-details></div>
-                </aside>
-              </div>
-            </section>
-          </div>
-        </main>
-      </div>
-    </div>
-    <div class="modal-backdrop" data-service-modal hidden>
-      <section
-        class="service-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="serviceModalTitle"
-      >
-        <div class="service-modal__header">
-          <div>
-            <h2 id="serviceModalTitle">Add Service</h2>
-            <p>Frontend CRUD interface only.</p>
-          </div>
-          <button
-            class="modal-close"
-            type="button"
-            data-close-service-modal
-            aria-label="Close modal"
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <form class="service-form">
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="serviceName">Service Name</label
-              ><input id="serviceName" type="text" placeholder="Service name" />
-            </div>
-            <div class="form-field">
-              <label for="serviceCategory">Category</label
-              ><select id="serviceCategory">
-                <option>Plumbing</option>
-                <option>Electrical</option>
-                <option>HVAC</option>
-                <option>Restoration</option>
-              </select>
-            </div>
-            <div class="form-field form-field--wide">
-              <label for="serviceDescription">Description</label
-              ><textarea
-                id="serviceDescription"
-                rows="3"
-                placeholder="Service description"
-              ></textarea>
-            </div>
-            <div class="form-field">
-              <label for="servicePrice">Price</label
-              ><input id="servicePrice" type="text" placeholder="₹2,500" />
-            </div>
-            <div class="form-field">
-              <label for="serviceDuration">Estimated Duration</label
-              ><input id="serviceDuration" type="text" placeholder="1 hour" />
-            </div>
-            <div class="form-field">
-              <label for="serviceStatus">Status</label
-              ><select id="serviceStatus">
-                <option>Active</option>
-                <option>Inactive</option>
-              </select>
-            </div>
-          </div>
-          <div class="service-modal__footer">
-            <button
-              class="button button--secondary"
-              type="button"
-              data-close-service-modal
-            >
-              Cancel</button
-            ><button class="button button--primary" type="button">Save</button>
-          </div>
-        </form>
-      </section>
-    </div>
-    <div class="modal-backdrop" data-delete-service-modal hidden>
-      <section
-        class="service-modal service-modal--small"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="deleteServiceTitle"
-      >
-        <div class="service-modal__header">
-          <h2 id="deleteServiceTitle">Delete Service</h2>
-          <button
-            class="modal-close"
-            type="button"
-            data-close-delete-modal
-            aria-label="Close modal"
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="service-form">
-          <p class="mb-0">
-            Are you sure you want to delete this service? This is UI only.
-          </p>
-          <div class="service-modal__footer">
-            <button
-              class="button button--secondary"
-              type="button"
-              data-close-delete-modal
-            >
-              Cancel</button
-            ><button
-              class="button button--danger"
-              type="button"
-              data-close-delete-modal
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/app.js"></script>
-    <script src="../../js/services.js"></script>
-  </body>
+</div>
+<div class="service-layout">
+<section aria-labelledby="servicesTableTitle" class="service-table-card">
+<div class="table-card-header">
+<div>
+<h2 id="servicesTableTitle">Services</h2>
+<p><span data-service-count="">0</span> records found</p>
+</div>
+</div>
+<div class="table-responsive">
+<table class="service-table">
+<thead>
+<tr>
+<th>Service ID</th>
+<th>Service Name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Duration</th>
+<th>Status</th>
+<th>Last Updated</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody data-service-table=""></tbody>
+</table>
+</div>
+<nav aria-label="Services pagination" class="pagination">
+<button type="button">Previous</button><button class="pagination__page pagination__page--active" type="button">
+                      1</button><button class="pagination__page" type="button">2</button><button class="pagination__page" type="button">3</button><button type="button">Next</button>
+</nav>
+</section>
+<aside aria-live="polite" class="service-details-card">
+<div class="service-image" data-detail-image="">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+</div>
+<div class="service-details-body" data-service-details=""></div>
+</aside>
+</div>
+</section>
+</div>
+</template>
+  <script src="../../js/app.js"></script>
+  <script>
+    mountShell('services').then(function () {
+      var tpl = document.getElementById('page-content');
+      var target = document.getElementById('content');
+      target.innerHTML = tpl.innerHTML;
+      tpl.remove();
+      document.dispatchEvent(new CustomEvent('elrs:page-ready'));
+      var s=document.createElement("script"); s.src="../../js/services.js"; document.body.appendChild(s);
+    }).catch(function(err){ console.error(err); });
+  </script>
+</body>
 </html>

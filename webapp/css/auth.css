@@ -1,0 +1,47 @@
+/* Auth pages — dark hero background, centered card */
+.auth-shell {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--deep-navy) 0%, var(--midnight-blue) 50%, #1a1a3e 100%);
+  position: relative; overflow: hidden;
+}
+.auth-shell::before {
+  content: ""; position: absolute; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(108,92,231,.35) 0%, transparent 70%);
+  top: -100px; right: -100px; border-radius: 50%;
+}
+.auth-shell::after {
+  content: ""; position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(155,140,255,.25) 0%, transparent 70%);
+  bottom: -100px; left: -100px; border-radius: 50%;
+}
+
+.auth-card {
+  position: relative; z-index: 1;
+  background: var(--white);
+  width: 100%; max-width: 440px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  padding: 40px 32px;
+}
+.auth-brand {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 24px;
+}
+.auth-brand img { width: 64px; height: 64px; border-radius: 12px; margin-bottom: 12px; }
+.auth-brand h1 { font-size: 22px; margin: 0; }
+.auth-brand p  { font-size: 13px; color: var(--text-2); margin: 4px 0 0; }
+
+.auth-card h2 {
+  font-size: 20px; margin-bottom: 6px;
+}
+.auth-card .subtitle {
+  color: var(--text-2); font-size: 13px; margin-bottom: 24px;
+}
+.auth-footer {
+  margin-top: 20px; text-align: center; font-size: 13px; color: var(--text-2);
+}
+.auth-footer a { font-weight: 500; }
+
+.btn-block { width: 100%; }

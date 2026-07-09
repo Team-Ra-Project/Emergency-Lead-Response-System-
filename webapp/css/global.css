@@ -1,0 +1,236 @@
+/* ============================================================
+   ELRS Global Styles — based on the UI/Design Guidelines
+   ============================================================ */
+:root {
+  /* Brand */
+  --deep-navy:      #0A0A23;
+  --midnight-blue:  #12122E;
+  --violet:         #6C5CE7;
+  --violet-light:   #9B8CFF;
+  --white:          #FFFFFF;
+
+  /* Surfaces (light mode app) */
+  --bg:             #F5F6FA;
+  --surface:        #FFFFFF;
+  --border:         #E3E5EC;
+  --text:           #1A1A2E;
+  --text-2:         #6B7280;
+
+  /* Status */
+  --st-new:       #3B82F6;
+  --st-contacted: #F59E0B;
+  --st-qualified: #6C5CE7;
+  --st-quote:     #06B6D4;
+  --st-booked:    #14B8A6;
+  --st-completed: #22C55E;
+  --st-lost:      #EF4444;
+  --st-pending:   #9CA3AF;
+
+  --radius: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4 { font-family: 'Poppins', 'Inter', sans-serif; margin: 0 0 12px; line-height: 1.2; }
+h1 { font-size: 26px; font-weight: 600; }
+h2 { font-size: 20px; font-weight: 600; }
+h3 { font-size: 16px; font-weight: 600; }
+
+a { color: var(--violet); text-decoration: none; }
+a:hover { color: var(--violet-light); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none; cursor: pointer;
+  padding: 10px 20px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 500;
+  transition: all .15s ease;
+}
+.btn-primary   { background: var(--violet); color: var(--white); }
+.btn-primary:hover   { background: #5B4BD6; }
+.btn-secondary { background: var(--white); color: var(--violet); border: 1px solid var(--violet); }
+.btn-secondary:hover { background: rgba(108,92,231,.08); }
+.btn-success   { background: var(--st-completed); color: #fff; }
+.btn-danger    { background: var(--st-lost); color: #fff; }
+.btn:disabled  { background: var(--border); color: var(--text-2); cursor: not-allowed; }
+.btn-icon      { background: transparent; color: var(--text-2); padding: 6px; }
+.btn-icon:hover{ color: var(--violet); }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+/* ---------- Forms ---------- */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block; margin-bottom: 6px;
+  font-size: 13px; font-weight: 500; color: var(--text);
+}
+.form-group label .req { color: var(--st-lost); margin-left: 2px; }
+.form-control {
+  width: 100%; padding: 10px 12px;
+  background: var(--white); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 14px; font-family: inherit;
+  transition: border-color .15s, box-shadow .15s;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(108,92,231,.15);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-actions {
+  display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;
+}
+
+.help-text { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+.error-text{ font-size: 12px; color: var(--st-lost); margin-top: 4px; }
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block; padding: 4px 10px;
+  border-radius: 999px; font-size: 12px; font-weight: 500;
+}
+.badge-new       { color: var(--st-new);       background: rgba(59,130,246,.15); }
+.badge-contacted { color: var(--st-contacted); background: rgba(245,158,11,.15); }
+.badge-qualified { color: var(--st-qualified); background: rgba(108,92,231,.15); }
+.badge-quote_sent{ color: var(--st-quote);     background: rgba(6,182,212,.15); }
+.badge-booked    { color: var(--st-booked);    background: rgba(20,184,166,.15); }
+.badge-completed { color: var(--st-completed); background: rgba(34,197,94,.15); }
+.badge-lost      { color: var(--st-lost);      background: rgba(239,68,68,.15); }
+.badge-pending   { color: var(--st-pending);   background: rgba(156,163,175,.20); }
+.badge-active    { color: var(--st-completed); background: rgba(34,197,94,.15); }
+.badge-inactive  { color: var(--st-pending);   background: rgba(156,163,175,.20); }
+
+/* ---------- Utilities ---------- */
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+.text-secondary { color: var(--text-2); }
+.text-center { text-align: center; }
+
+/* Toast */
+.toast {
+  position: fixed; top: 24px; right: 24px; z-index: 999;
+  padding: 12px 16px; border-radius: var(--radius);
+  background: var(--text); color: #fff; box-shadow: var(--shadow-md);
+  opacity: 0; transform: translateY(-8px); transition: all .2s;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { background: var(--st-completed); }
+.toast.error   { background: var(--st-lost); }
+
+/* ============================================================
+   Confirm modal (used for logout confirmation, etc.)
+   ============================================================ */
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 10, 35, .48);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.confirm-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.confirm-modal {
+  width: min(380px, 100%);
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(10, 10, 35, .35);
+  padding: 32px 28px 28px;
+  text-align: center;
+  transform: scale(.94) translateY(8px);
+  transition: transform .18s ease;
+  outline: none;
+}
+.confirm-backdrop.is-open .confirm-modal {
+  transform: scale(1) translateY(0);
+}
+.confirm-modal__icon {
+  width: 56px; height: 56px; margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, .12);
+  color: var(--st-lost);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.confirm-modal__title {
+  font-size: 19px; font-weight: 600; color: var(--text);
+  margin: 0 0 8px;
+}
+.confirm-modal__message {
+  font-size: 13.5px; line-height: 1.6; color: var(--text-2);
+  margin: 0 0 24px;
+}
+.confirm-modal__actions {
+  display: flex; gap: 12px;
+}
+.confirm-modal__btn {
+  flex: 1;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 14px; font-weight: 600; font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.confirm-modal__btn--cancel {
+  background: var(--white);
+  border-color: var(--border);
+  color: var(--text);
+}
+.confirm-modal__btn--cancel:hover { background: var(--bg); }
+.confirm-modal__btn--cancel:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, .25);
+}
+.confirm-modal__btn--danger {
+  background: var(--st-lost);
+  color: #fff;
+}
+.confirm-modal__btn--danger:hover { background: #DC2626; }
+.confirm-modal__btn--danger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, .28);
+}
+.confirm-modal__btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}

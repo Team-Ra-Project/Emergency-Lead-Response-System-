@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                              https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <display-name>ELRS</display-name>
+    <display-name>ELRS - Emergency Lead Response System</display-name>
 
     <welcome-file-list>
-        <welcome-file>pages/leads/lead-management.html</welcome-file>
+        <welcome-file>pages/auth/login.html</welcome-file>
     </welcome-file-list>
 
+    <session-config>
+        <session-timeout>60</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
+    </session-config>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/auth/login.html</location>
+    </error-page>
 </web-app>

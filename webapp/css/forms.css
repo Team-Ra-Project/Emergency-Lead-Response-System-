@@ -1,0 +1,16 @@
+/* Placeholder — global.css already contains form styles.
+   Kept for team-agreed file structure. */
+*** Add File: elrs/webapp/css/reports.css
+.report-filters {
+  display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.report-filters select, .report-filters input {
+  padding: 8px 12px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--white); font-size: 13px;
+}
+.perf-bar {
+  height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden;
+}
+.perf-bar > span {
+  display: block; height: 100%; background: var(--violet);
+}
