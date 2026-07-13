@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap');
+
+:root{
+    --primary:#6C5CE7;
+    --primary-hover:#5A4AD1;
+    --background:#F5F6FA;
+    --white:#ffffff;
+    --border:#E3E5EC;
+    --text:#1A1A2E;
+    --text-light:#6B7280;
+    --danger:#EF4444;
+    --shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    background:var(--background);
+    color:var(--text);
+
+    padding:40px 20px;
+}
+
+/* Heading */
+
+#ad{
+
+    text-align:center;
+    font-family:'Poppins',sans-serif;
+    font-size:32px;
+    margin-bottom:30px;
+    color:var(--primary);
+}
+
+/* Form Card */
+
+#leadForm{
+
+    max-width:900px;
+    margin:auto;
+
+    background:var(--white);
+
+    padding:35px;
+
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+/* Form Group */
+
+.form-group{
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* Labels */
+
+.form-group label{
+
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.form-group label::after{
+
+    content:" *";
+    color:var(--danger);
+}
+
+/* Inputs */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:8px;
+
+    outline:none;
+
+    background:#fff;
+
+    transition:.3s;
+}
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(108,92,231,.15);
+}
+
+/* Textarea */
+
+.form-group:last-of-type{
+
+    grid-column:1/-1;
+}
+
+textarea{
+
+    resize:vertical;
+    min-height:140px;
+}
+
+/* Buttons */
+
+.form-actions{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:10px;
+}
+
+/* Buttons */
+
+button{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+/* Clear */
+
+button[type="reset"]{
+
+    background:#fff;
+
+    color:var(--primary);
+
+    border:1px solid var(--primary);
+}
+
+button[type="reset"]:hover{
+
+    background:#F3F1FF;
+}
+
+/* Save */
+
+button[type="submit"]{
+
+    background:var(--primary);
+
+    color:#fff;
+}
+
+button[type="submit"]:hover{
+
+    background:var(--primary-hover);
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(108,92,231,.3);
+}
+
+::placeholder{
+
+    color:#9CA3AF;
+}
+
+
+/* ===================================================
+   CUSTOMER FORM
+   =================================================== */
+
+.customer-title{
+
+    text-align:center;
+    color:#6C5CE7;
+    font-size:32px;
+    font-weight:600;
+    margin:35px 0 25px;
+}
+
+.customer-container{
+
+    max-width:900px;
+    margin:auto;
+}
+
+#customerForm{
+
+    background:#FFFFFF;
+
+    padding:35px;
+
+    border-radius:14px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+.customer-group{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.customer-group label{
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#1A1A2E;
+}
+
+.customer-group label::after{
+
+    content:" *";
+
+    color:#EF4444;
+}
+
+.customer-input,
+.customer-select,
+.customer-textarea{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid #E3E5EC;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    background:#FFFFFF;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.customer-input:focus,
+.customer-select:focus,
+.customer-textarea:focus{
+
+    border-color:#6C5CE7;
+
+    box-shadow:0 0 0 4px rgba(108,92,231,.15);
+}
+
+.customer-select{
+
+    cursor:pointer;
+}
+
+.customer-textarea{
+
+    resize:vertical;
+
+    min-height:140px;
+}
+
+.customer-full{
+
+    grid-column:1/-1;
+}
+
+.customer-actions{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:10px;
+}
+
+.customer-actions button{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.customer-actions button[type="reset"]{
+
+    background:#FFFFFF;
+
+    color:#6C5CE7;
+
+    border:1px solid #6C5CE7;
+}
+
+.customer-actions button[type="reset"]:hover{
+
+    background:#F3F1FF;
+}
+
+.customer-actions button[type="submit"]{
+
+    background:#6C5CE7;
+
+    color:#FFFFFF;
+}
+
+.customer-actions button[type="submit"]:hover{
+
+    background:#5A4AD1;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(108,92,231,.30);
+}
+
+.customer-input::placeholder,
+.customer-textarea::placeholder{
+
+    color:#9CA3AF;
+}
+
+/* ===================================================
+   APPOINTMENT FORM
+   =================================================== */
+
+.appointment-title{
+
+    text-align:center;
+    color:#6C5CE7;
+    font-size:32px;
+    font-weight:600;
+    margin:35px 0 25px;
+}
+
+.appointment-container{
+
+    max-width:900px;
+    margin:auto;
+}
+
+#appointmentForm{
+
+    background:#FFFFFF;
+
+    padding:35px;
+
+    border-radius:14px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+.appointment-group{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.appointment-group label{
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#1A1A2E;
+}
+
+.appointment-group label::after{
+
+    content:" *";
+
+    color:#EF4444;
+}
+
+.appointment-input,
+.appointment-select,
+.appointment-textarea{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid #E3E5EC;
+
+    border-radius:8px;
+
+    background:#FFFFFF;
+
+    font-size:14px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.appointment-input:focus,
+.appointment-select:focus,
+.appointment-textarea:focus{
+
+    border-color:#6C5CE7;
+
+    box-shadow:0 0 0 4px rgba(108,92,231,.15);
+}
+
+.appointment-select{
+
+    cursor:pointer;
+}
+
+.appointment-textarea{
+
+    resize:vertical;
+
+    min-height:140px;
+}
+
+.appointment-full{
+
+    grid-column:1/-1;
+}
+
+.appointment-actions{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:10px;
+}
+
+.appointment-actions button{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.appointment-actions button[type="reset"]{
+
+    background:#FFFFFF;
+
+    color:#6C5CE7;
+
+    border:1px solid #6C5CE7;
+}
+
+.appointment-actions button[type="reset"]:hover{
+
+    background:#F3F1FF;
+}
+
+.appointment-actions button[type="submit"]{
+
+    background:#6C5CE7;
+
+    color:#FFFFFF;
+}
+
+.appointment-actions button[type="submit"]:hover{
+
+    background:#5A4AD1;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(108,92,231,.30);
+}
+
+.appointment-input::placeholder,
+.appointment-textarea::placeholder{
+
+    color:#9CA3AF;
+}
+
+/* ===================================================
+   SERVICE FORM
+   =================================================== */
+
+.service-title{
+
+    text-align:center;
+    color:#6C5CE7;
+    font-size:32px;
+    font-weight:600;
+    margin:35px 0 25px;
+}
+
+.service-container{
+
+    max-width:900px;
+    margin:auto;
+}
+
+#serviceForm{
+
+    background:#FFFFFF;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.service-group{
+
+    display:flex;
+    flex-direction:column;
+}
+
+.service-group label{
+
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#1A1A2E;
+}
+
+.service-group label::after{
+
+    content:" *";
+    color:#EF4444;
+}
+
+.service-input,
+.service-select,
+.service-textarea{
+
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #E3E5EC;
+    border-radius:8px;
+    background:#FFFFFF;
+    font-size:14px;
+    outline:none;
+    transition:.3s;
+}
+
+.service-input:focus,
+.service-select:focus,
+.service-textarea:focus{
+
+    border-color:#6C5CE7;
+    box-shadow:0 0 0 4px rgba(108,92,231,.15);
+}
+
+.service-select{
+
+    cursor:pointer;
+}
+
+.service-textarea{
+
+    resize:vertical;
+    min-height:140px;
+}
+
+.service-full{
+
+    grid-column:1/-1;
+}
+
+.service-actions{
+
+    grid-column:1/-1;
+
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:10px;
+}
+
+.service-actions button{
+
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.service-actions button[type="reset"]{
+
+    background:#FFFFFF;
+    color:#6C5CE7;
+    border:1px solid #6C5CE7;
+}
+
+.service-actions button[type="reset"]:hover{
+
+    background:#F3F1FF;
+}
+
+.service-actions button[type="submit"]{
+
+    background:#6C5CE7;
+    color:#FFFFFF;
+}
+
+.service-actions button[type="submit"]:hover{
+
+    background:#5A4AD1;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(108,92,231,.30);
+}
+
+.service-input::placeholder,
+.service-textarea::placeholder{
+
+    color:#9CA3AF;
+}

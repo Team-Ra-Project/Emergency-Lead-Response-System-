@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Appointment</title>
+
+<link rel="stylesheet" href="../../css/advanceForms.css">
+<link rel="stylesheet" href="../../css/advanceFromsRes.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1 class="appointment-title">Add Appointment</h1>
+
+<div class="appointment-container">
+
+<form id="appointmentForm" action="/ELRS/api/appointments" method="post">
+
+    <div class="appointment-group">
+        <label for="customerName">Customer Name</label>
+        <input
+            class="appointment-input"
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter Customer Name"
+            required>
+    </div>
+
+    <div class="appointment-group">
+        <label for="assignedStaff">Assigned Staff</label>
+
+        <select
+            class="appointment-select"
+            id="assignedStaff"
+            name="assignedStaff"
+            required>
+
+            <option value="">Select Staff</option>
+            <option value="Emergency Coordinator">Emergency Coordinator</option>
+            <option value="Field Executive">Field Executive</option>
+            <option value="Support Executive">Support Executive</option>
+            <option value="Operations Manager">Operations Manager</option>
+            <option value="Admin">Admin</option>
+
+        </select>
+
+    </div>
+
+    <div class="appointment-group">
+        <label for="serviceName">Service Name</label>
+
+        <select
+            class="appointment-select"
+            id="serviceName"
+            name="serviceName"
+            required>
+
+            <option value="">Select Service</option>
+            <option value="Ambulance">Ambulance</option>
+            <option value="Fire Rescue">Fire Rescue</option>
+            <option value="Medical Assistance">Medical Assistance</option>
+            <option value="Police Assistance">Police Assistance</option>
+
+        </select>
+
+    </div>
+
+    <div class="appointment-group">
+        <label for="appointmentDate">Appointment Date</label>
+
+        <input
+            class="appointment-input"
+            type="date"
+            id="appointmentDate"
+            name="appointmentDate"
+            required>
+
+    </div>
+
+    <div class="appointment-group">
+        <label for="appointmentTime">Appointment Time</label>
+
+        <input
+            class="appointment-input"
+            type="time"
+            id="appointmentTime"
+            name="appointmentTime"
+            required>
+
+    </div>
+
+    <div class="appointment-group">
+        <label for="duration">Duration</label>
+
+        <select
+            class="appointment-select"
+            id="duration"
+            name="duration"
+            required>
+
+            <option value="">Select Duration</option>
+            <option value="15 Minutes">15 Minutes</option>
+            <option value="30 Minutes">30 Minutes</option>
+            <option value="45 Minutes">45 Minutes</option>
+            <option value="1 Hour">1 Hour</option>
+            <option value="2 Hours">2 Hours</option>
+            <option value="Half Day">Half Day</option>
+
+        </select>
+
+    </div>
+
+    <div class="appointment-group appointment-full">
+
+        <label for="appointmentNote">Notes</label>
+
+        <textarea
+            class="appointment-textarea"
+            id="appointmentNote"
+            name="appointmentNote"
+            rows="6"
+            placeholder="Enter Notes"
+            required></textarea>
+
+    </div>
+
+    
+<div class="appointment-actions">
+
+
+<button type="button" class="btn-back" onclick="window.location.href='appointment.html'">
+    ← Back 
+</button>
+        <button type="reset">
+            Clear
+        </button>
+
+        <button type="submit">
+            Save Appointment
+        </button>
+
+    </div>
+
+</form>
+
+</div>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/api-core.js"></script>
+<script src="../../js/appointment-api.js"></script>
+
+</body>
+</html>

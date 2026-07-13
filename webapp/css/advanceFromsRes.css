@@ -1,0 +1,593 @@
+/* Laptop */
+
+@media(max-width:992px){
+
+    #leadForm{
+
+        max-width:800px;
+
+        padding:30px;
+    }
+
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:25px 15px;
+    }
+
+    #ad{
+
+        font-size:28px;
+    }
+
+    #leadForm{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+        padding:25px;
+    }
+
+    .form-group:last-of-type{
+
+        grid-column:auto;
+    }
+
+    .form-actions{
+
+        grid-column:auto;
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:576px){
+
+    body{
+
+        padding:18px 12px;
+    }
+
+    #ad{
+
+        font-size:24px;
+
+        margin-bottom:20px;
+    }
+
+    #leadForm{
+
+        padding:18px;
+    }
+
+    .form-group label{
+
+        font-size:13px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+    .form-actions{
+
+        flex-direction:column-reverse;
+    }
+
+    .form-actions button{
+
+        width:100%;
+    }
+
+}
+
+/* Small Mobile */
+
+@media(max-width:400px){
+
+    body{
+
+        padding:12px 8px;
+    }
+
+    #leadForm{
+
+        padding:15px;
+    }
+
+    #ad{
+
+        font-size:22px;
+    }
+
+    button{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+}
+
+
+
+/* ===================================================
+   CUSTOMER FORM RESPONSIVE
+   =================================================== */
+
+/* Large Laptop */
+
+@media (max-width:1200px){
+
+    .customer-container{
+
+        max-width:950px;
+    }
+
+}
+
+/* Laptop */
+
+@media (max-width:992px){
+
+    .customer-container{
+
+        max-width:850px;
+    }
+
+    #customerForm{
+
+        padding:30px;
+
+        gap:20px;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+    body{
+
+        padding:25px 15px;
+    }
+
+    .customer-title{
+
+        font-size:28px;
+    }
+
+    #customerForm{
+
+        grid-template-columns:1fr;
+
+        padding:25px;
+
+        gap:18px;
+    }
+
+    .customer-full{
+
+        grid-column:auto;
+    }
+
+    .customer-actions{
+
+        grid-column:auto;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:576px){
+
+    body{
+
+        padding:18px 12px;
+    }
+
+    .customer-title{
+
+        font-size:24px;
+
+        margin-bottom:20px;
+    }
+
+    #customerForm{
+
+        padding:18px;
+    }
+
+    .customer-group label{
+
+        font-size:13px;
+    }
+
+    .customer-input,
+    .customer-select,
+    .customer-textarea{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+    .customer-actions{
+
+        flex-direction:column-reverse;
+
+        gap:12px;
+    }
+
+    .customer-actions button{
+
+        width:100%;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width:400px){
+
+    body{
+
+        padding:12px 8px;
+    }
+
+    .customer-title{
+
+        font-size:22px;
+    }
+
+    #customerForm{
+
+        padding:15px;
+    }
+
+    .customer-input,
+    .customer-select,
+    .customer-textarea{
+
+        font-size:13px;
+
+        padding:10px;
+    }
+
+    .customer-actions button{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+}
+
+/* Landscape Phones */
+
+@media (max-height:500px) and (orientation:landscape){
+
+    body{
+
+        padding:15px;
+    }
+
+    #customerForm{
+
+        padding:20px;
+    }
+
+}
+
+/* ===================================================
+   APPOINTMENT FORM RESPONSIVE
+   =================================================== */
+
+/* Large Laptop */
+
+@media (max-width:1200px){
+
+    .appointment-container{
+
+        max-width:950px;
+    }
+
+}
+
+/* Laptop */
+
+@media (max-width:992px){
+
+    .appointment-container{
+
+        max-width:850px;
+    }
+
+    #appointmentForm{
+
+        padding:30px;
+
+        gap:20px;
+    }
+
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+
+    body{
+
+        padding:25px 15px;
+    }
+
+    .appointment-title{
+
+        font-size:28px;
+    }
+
+    #appointmentForm{
+
+        grid-template-columns:1fr;
+
+        padding:25px;
+
+        gap:18px;
+    }
+
+    .appointment-full{
+
+        grid-column:auto;
+    }
+
+    .appointment-actions{
+
+        grid-column:auto;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:576px){
+
+    body{
+
+        padding:18px 12px;
+    }
+
+    .appointment-title{
+
+        font-size:24px;
+
+        margin-bottom:20px;
+    }
+
+    #appointmentForm{
+
+        padding:18px;
+    }
+
+    .appointment-group label{
+
+        font-size:13px;
+    }
+
+    .appointment-input,
+    .appointment-select,
+    .appointment-textarea{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+    .appointment-actions{
+
+        flex-direction:column-reverse;
+
+        gap:12px;
+    }
+
+    .appointment-actions button{
+
+        width:100%;
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width:400px){
+
+    body{
+
+        padding:12px 8px;
+    }
+
+    .appointment-title{
+
+        font-size:22px;
+    }
+
+    #appointmentForm{
+
+        padding:15px;
+    }
+
+    .appointment-input,
+    .appointment-select,
+    .appointment-textarea{
+
+        padding:10px;
+
+        font-size:13px;
+    }
+
+    .appointment-actions button{
+
+        padding:11px;
+
+        font-size:13px;
+    }
+
+}
+
+/* Landscape Phones */
+
+@media (max-height:500px) and (orientation:landscape){
+
+    body{
+
+        padding:15px;
+    }
+
+    #appointmentForm{
+
+        padding:20px;
+    }
+
+}
+/* ===================================================
+   SERVICE FORM RESPONSIVE
+   =================================================== */
+
+@media (max-width:1200px){
+
+    .service-container{
+
+        max-width:950px;
+    }
+
+}
+
+@media (max-width:992px){
+
+    .service-container{
+
+        max-width:850px;
+    }
+
+    #serviceForm{
+
+        padding:30px;
+        gap:20px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .service-title{
+
+        font-size:28px;
+    }
+
+    #serviceForm{
+
+        grid-template-columns:1fr;
+        padding:25px;
+        gap:18px;
+    }
+
+    .service-full{
+
+        grid-column:auto;
+    }
+
+    .service-actions{
+
+        grid-column:auto;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .service-title{
+
+        font-size:24px;
+        margin-bottom:20px;
+    }
+
+    #serviceForm{
+
+        padding:18px;
+    }
+
+    .service-group label{
+
+        font-size:13px;
+    }
+
+    .service-input,
+    .service-select,
+    .service-textarea{
+
+        padding:11px;
+        font-size:13px;
+    }
+
+    .service-actions{
+
+        flex-direction:column-reverse;
+        gap:12px;
+    }
+
+    .service-actions button{
+
+        width:100%;
+    }
+
+}
+
+@media (max-width:400px){
+
+    .service-title{
+
+        font-size:22px;
+    }
+
+    #serviceForm{
+
+        padding:15px;
+    }
+
+    .service-input,
+    .service-select,
+    .service-textarea{
+
+        padding:10px;
+        font-size:13px;
+    }
+
+    .service-actions button{
+
+        padding:11px;
+        font-size:13px;
+    }
+
+}
+
+@media (max-height:500px) and (orientation:landscape){
+
+    #serviceForm{
+
+        padding:20px;
+    }
+
+}

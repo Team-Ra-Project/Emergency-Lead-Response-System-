@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Customer</title>
+
+<link rel="stylesheet" href="../../css/advanceForms.css">
+<link rel="stylesheet" href="../../css/advanceFromsRes.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1 class="customer-title">Add Customer</h1>
+
+<div class="customer-container">
+
+<form id="customerForm" action="/ELRS/api/customers" method="post">
+
+    <div class="customer-group">
+        <label for="customerName">Customer Name</label>
+        <input
+            class="customer-input"
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter Customer Name"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+            class="customer-input"
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Enter Phone Number"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="email">Email</label>
+        <input
+            class="customer-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="city">City</label>
+        <input
+            class="customer-input"
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Enter City"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="address">Address</label>
+        <input
+            class="customer-input"
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Enter Address"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="state">State</label>
+        <input
+            class="customer-input"
+            type="text"
+            id="state"
+            name="state"
+            placeholder="Enter State"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="pincode">Pincode</label>
+        <input
+            class="customer-input"
+            type="number"
+            id="pincode"
+            name="pincode"
+            placeholder="Enter Pincode"
+            required>
+    </div>
+
+    <div class="customer-group">
+        <label for="customerType">Customer Type</label>
+
+        <select
+            class="customer-select"
+            id="customerType"
+            name="customerType"
+            required>
+
+            <option value="">Select Customer Type</option>
+            <option value="Individual">Individual</option>
+            <option value="Family">Family</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Hospital">Hospital</option>
+            <option value="Government">Government</option>
+            <option value="NGO">NGO</option>
+            <option value="Other">Other</option>
+
+        </select>
+
+    </div>
+
+    <div class="customer-group customer-full">
+
+        <label for="notes">Notes</label>
+
+        <textarea
+            class="customer-textarea"
+            id="notes"
+            name="notes"
+            rows="6"
+            placeholder="Enter Notes"
+            required></textarea>
+
+    </div>
+
+
+    <div class="customer-actions">
+
+
+    <button type="button" class="btn-back" onclick="window.location.href='customer-management.html'">
+    ← Back 
+</button>
+        <button type="reset">
+            Clear
+        </button>
+
+        <button type="submit">
+            Save Customer
+        </button>
+
+    </div>
+
+</form>
+
+</div>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/api-core.js"></script>
+<script src="../../js/customer-api.js"></script>
+
+</body>
+</html>
